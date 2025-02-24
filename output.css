@@ -1,0 +1,1024 @@
+/* 导入Google字体 */
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+/* 通用样式 */
+* {
+  box-sizing: border-box;
+}
+
+/* body样式，包含整体布局和主题色定义 */
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--app-bg);
+  font-family: "DM Sans", sans-serif;
+  --text-dark: #1a2f45;
+  --text-light: #445e78;
+  --chat-box-dark: #1b243b;
+  --chat-box-light: #fff;
+  --button-text: #fff;
+  --toggle-ball: #fff;
+  --list-item-active: #e5effb;
+  --number-bg: #6895A3;
+  --message-box-1: #fff;
+  --message-box-2: #1a233b;
+  --chat-input: #060415;
+  --border-light: #8187a2;
+  --info-box-color-1: #004dfc;
+  --info-box-color-2: #00ba9d;
+  --info-box-color-3: #715fc2;
+  --info-box-color-4: #ff562d;
+  --info-icon-bg-1: #b1c7fc;
+  --info-icon-bg-2: #c6f0ea;
+  --info-icon-bg-3: #d9d3ff;
+  --info-icon-bg-4: #ffe1d4;
+  --app-bg: #060415;
+  --box-color: #12172d;
+  --box-border: #477eff;
+  --button-bg: #477eff;
+  --text-dark: rgba(255,255,255,1);
+  --text-light: rgba(255,255,255,.6);
+  --info-box-1: rgba(160, 186, 242, 0.5);
+  --info-box-2: rgba(168, 240, 229, 0.55);
+  --info-box-3: rgba(194, 168, 240, 0.34);
+  --info-box-4: rgba(240, 185, 168, 0.34);
+  --toggle-bg: #477eff;
+  --toggle-bg-off: #6895a3;
+  --message-box-2: #477eff;
+  --message-box-1: #576c99;
+  --logo-path-1: #477eff;
+  --logo-path-2: #576c99;
+  --box-shadow: rgba( 18, 23, 45 ,.6) 0px 8px 24px;
+  --scrollbar-thumb: linear-gradient(to bottom, rgba(43, 88, 118, .8), rgba(78, 67, 118, .8));
+}
+
+/* 根据主题切换样式 */
+body[data-theme=indigo], body[data-theme=pink] {
+  --app-bg: #fff;
+  --box-color: #f5f8fc;
+  --box-border: #e7edf5;
+  --text-dark: #1a2f45;
+  --text-light: #445e78;
+  --chat-box-dark: #1b243b;
+  --chat-box-light: #fff;
+  --button-bg: #004dfc;
+  --button-text: #fff;
+  --toggle-bg: #004dfc;
+  --toggle-bg-off: #6895A3;
+  --toggle-ball: #fff;
+  --logo-path-1: #A0C9E1;
+  --logo-path-2: #18689C;
+  --list-item-active: #e5effb;
+  --number-bg: #6895A3;
+  --message-box-1: #fff;
+  --message-box-2: #1a233b;
+  --chat-input: #f5f8fc;
+  --border-light: #e5e6eb;
+  --info-box-1: rgba( 217, 228, 252 ,1);
+  --info-box-2: rgba( 226, 246, 243 ,1);
+  --info-box-3: #f7f3ff;
+  --info-box-4: #fff1e9;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --info-box-3: #b3a5ce;
+  --info-box-4: #ffceb3;
+  --scrollbar-thumb: linear-gradient(to top, rgba(131, 164, 212, .5), rgb(182, 188 ,255 , 0.4));
+}
+
+/* 为粉色主题定义样式变量 */
+body[data-theme=pink] {
+  --box-color: #f8f1f1;
+  --button-bg: #1a233b;
+  --logo-path-1: #e8d5db;
+  --logo-path-2: #6895A3;
+  --toggle-bg: #1a233b;
+}
+
+/* 为深海军蓝主题定义样式变量 */
+body[data-theme=navy-dark] {
+  --app-bg: #060415;
+  --box-color: #12172d;
+  --box-border: #477eff;
+  --button-bg: #477eff;
+  --toggle-bg: #477eff;
+  --toggle-bg-off: #6895a3;
+  --message-box-2: #477eff;
+  --message-box-1: #576c99;
+  --chat-input: #060415;
+  --border-light: #8187a2;
+}
+
+/* 为深海军蓝和黑暗主题定义通用样式变量 */
+body[data-theme=navy-dark], body[data-theme=dark] {
+  --text-dark: rgba(255,255,255,1);
+  --text-light: rgba(255,255,255,.6);
+  --info-box-1: rgba(160, 186, 242, 0.5);
+  --info-box-2: rgba(168, 240, 229, 0.55);
+  --info-box-3: rgba(194, 168, 240, 0.34);
+  --info-box-4: rgba(240, 185, 168, 0.34);
+  --logo-path-1: #477eff;
+  --logo-path-2: #576c99;
+  --scrollbar-thumb: linear-gradient(to bottom, rgba(43, 88, 118, .8), rgba(78, 67, 118, .8));
+}
+
+/* 为黑暗主题定义样式变量 */
+body[data-theme=dark] {
+  --app-bg: #040508;
+  --box-color: #131a24;
+  --box-border: #131a24;
+  --button-bg: #1e2b4a;
+  --toggle-bg: #477eff;
+  --toggle-bg-off: #6895a3;
+  --message-box-2: #1e2b4a;
+  --message-box-1: #576c99;
+  --chat-input: #040508;
+  --border-light: #040508;
+}
+
+/* 应用容器样式 */
+.app-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  max-width: 1800px;
+}
+
+/* 左侧应用样式 */
+.app-left {
+  flex-basis: 320px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin-right: 24px;
+  overflow-y: auto;
+}
+
+/* 左侧头部样式 */
+.app-left-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--app-bg);
+}
+
+/* 左侧头部标题样式 */
+.app-left-header h1 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text-dark);
+  margin-left: 12px;
+}
+
+/* 应用logo样式 */
+.app-logo svg {
+  width: 40px;
+  height: 40px;
+}
+/* 此部分代码用于设置应用程序标志的SVG图形路径的填充颜色 */
+.app-logo svg .path-1 {
+  fill: var(--logo-path-1);
+}
+.app-logo svg .path-2 {
+  fill: var(--logo-path-2);
+}
+
+/* 用户资料框样式 */
+.app-profile-box {
+  border: 1px solid var(--box-border);
+  background-color: var(--box-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+/* 该类用于设置用户头像的样式 */
+.app-profile-box img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* 该类用于设置用户名称的样式 */
+.app-profile-box-name {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* 该类用于设置用户头衔的样式 */
+.app-profile-box-title {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* 切换状态样式 */
+.switch-status {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* 定义开关状态的样式 */
+.switch-status input {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* 开关被选中时，标签的背景色 */
+.switch-status input:checked + label {
+  background-color: var(--toggle-bg);
+}
+
+/* 开关被选中时，移动伪元素的位置 */
+.switch-status input:checked + label:before {
+  left: 12px;
+}
+
+/* 当开关被选中时，隐藏离线状态 */
+.switch-status input:checked ~ .toggle-offline {
+  display: none;
+}
+
+/* 当开关被选中时，显示在线状态 */
+.switch-status input:checked ~ .toggle-online {
+  display: inline-block;
+}
+
+/* 切换文本样式 */
+.toggle-text {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: var(--text-light);
+}
+
+/* 控制在线状态的切换 */
+.toggle-online {
+  display: none;
+}
+
+/* 控制离线状态的切换 */
+.toggle-offline {
+  display: inline-block;
+}
+/* 切换标签样式 */
+.label-toggle {
+  background-color: var(--toggle-bg-off);
+  border-radius: 24px;
+  width: 24px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+/* 
+.label-toggle:before 为标签切换创建一个伪元素，用于显示切换的球体 
+*/
+.label-toggle:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 2px;
+  top: 50%;
+  transform: translatey(-50%);
+  border-radius: 50%;
+  background-color: var(--toggle-ball);
+  transition: all 0.2s ease;
+}
+
+/* 切换文本样式 */
+.toggle-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* 应用设置按钮样式 */
+.app-setting {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--text-dark);
+  margin-left: 4px;
+}
+
+/* 聊天列表样式 */
+.chat-list {
+  padding: 0;
+  list-style: none;
+  height: 0px;
+  overflow: hidden;
+  transition: 0.4s ease-in;
+  display: none;
+  opacity: 0;
+}
+
+/* 聊天列表的样式设置 */
+.chat-list.active {
+  display: block;
+  height: auto;
+  max-height: auto;
+  opacity: 1;
+}
+
+/* 聊天列表项的基础样式 */
+.chat-list-item {
+  transition: 0.2s;
+  padding: 8px 14px;
+  margin: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* 活动状态的聊天列表项的样式 */
+.chat-list-item.active {
+  background-color: var(--box-color);
+}
+
+/* 活动状态聊天列表项中span元素的样式 */
+.chat-list-item.active span {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* 聊天列表项中图像的样式 */
+.chat-list-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 8px;
+}
+
+/* 定义聊天列表项在鼠标悬停时的样式 */
+.chat-list-item:hover {
+  background-color: var(--box-color);
+}
+
+/* 定义聊天列表名称的样式 */
+.chat-list-name {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+/* 聊天列表头部样式 */
+.chat-list-header {
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 16px;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+}
+
+/* 定义聊天列表头部中数字的样式 */
+.chat-list-header .c-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button-bg);
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+
+/* 列表头部箭头样式 */
+.list-header-arrow {
+  margin-left: auto;
+  transform: rotate(180deg);
+  transition: 0.2s ease;
+}
+.chat-list-header.active .list-header-arrow {
+  transform: rotate(0deg);
+}
+
+/* 主应用样式 */
+.app-main {
+  flex: 3;
+  height: 100%;
+  background-color: var(--box-color);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+}
+
+/* 主应用头部样式 */
+.app-main-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--box-color);
+  border: 1px solid var(--box-border);
+}
+
+/* 聊天包装器样式 */
+.chat-wrapper {
+  overflow: auto;
+}
+
+/* 聊天输入框样式 */
+.chat-input {
+  border: none;
+  outline: none;
+  height: 32px;
+  flex: 1;
+  margin-right: 4px;
+  background-color: var(--chat-input);
+  color: var(--text-dark);
+}
+
+/**************************************  
+  该CSS规则设置了聊天输入框的占位符样式  
+**************************************/
+.chat-input:placeholder {
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+/* 聊天输入框包装器样式 */
+.chat-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  margin-top: auto;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: var(--chat-input);
+}
+
+/* 输入包装器样式 */
+.input-wrapper {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 0 6px 0 12px;
+  justify-content: space-between;
+  margin: 0 8px;
+  background-color: var(--chat-input);
+}
+
+/* 表情按钮样式 */
+.emoji-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  color: #ffca3e;
+}
+
+/* 发送按钮样式 */
+.chat-send-btn {
+/* 设置元素的高度为 32 像素 */
+height: 32px; 
+/* 设置元素的文本颜色为白色 */
+color: #fff; 
+/* 设置元素的背景颜色为一个变量（通常在 CSS 变量中定义） */
+background-color: var(--button-bg); 
+/* 去除元素的边框 */
+border: none; 
+/* 设置元素的边角为圆角，半径为 4 像素 */
+border-radius: 4px; 
+/* 设置元素内部的填充，分别是上面 0 像素，右边 32 像素，下面 0 像素，左边 10 像素 */
+padding: 0 13px 0 10px; 
+/* 设置元素的字体大小为 12 像素 */
+font-size: 12px; 
+/* 设置背景图像的位置在元素的中间偏右 8 像素 */
+background-position: center right 8px; 
+/* 设置背景图像不重复 */
+background-repeat: no-repeat; 
+/* 设置背景图像的尺寸为 14 像素 */
+background-size: 14px; 
+/* 设置元素的行高为 16 像素 */
+line-height: 16px; 
+}
+
+/* 附件按钮样式 */
+.chat-attachment-btn {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+/* 消息包装器样式 */
+.message-wrapper {
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+
+/* 样式定义：反向消息包装器 */
+.message-wrapper.reverse {
+  justify-content: flex-end;
+}
+
+/* 样式定义：反向消息框 */
+.message-wrapper.reverse .message-box {
+  background-color: var(--message-box-2);
+  color: #fff;
+}
+
+/* 样式定义：反向消息框包装器 */
+.message-wrapper.reverse .message-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* 样式定义：反向个人资料图片的顺序 */
+.message-wrapper.reverse .message-pp {
+  order: 2;
+}
+
+/* 消息头像样式 */
+.message-pp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+    object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* 消息框样式 */
+.message-box {
+  background-color: var(--message-box-1);
+  box-shadow: var(--box-shadow);
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  width: auto;
+  max-width: 80%;
+  color: var(--text-dark);
+}
+/* 消息框包装类的样式 */
+.message-box-wrapper {
+  margin: 0 12px;
+}
+
+/* 消息框中的文本样式 */
+.message-box-wrapper span {
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--text-light);
+  opacity: 0.6;
+}
+
+/* 右侧应用样式 */
+.app-right {
+  flex-basis: 320px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+  transition: 0.2s;
+  overflow: auto;
+}
+/* 该样式用于设置应用右侧个人资料框的样式 */
+.app-right .app-profile-box img {
+  margin-bottom: 16px;
+}
+
+/* 该样式用于定义个人资料框标题的样式 */
+.app-right .app-profile-box-title {
+  width: 100%;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+}
+
+/* 该样式用于设置个人资料框标题中 SVG 图标的样式 */
+.app-right .app-profile-box-title svg {
+  width: 16px;
+  margin-right: 6px;
+}
+
+/* 存档按钮样式 */
+.archive-btn {
+  color: #fff;
+  height: 32px;
+  margin-top: 16px;
+  border-radius: 4px;
+  background-color: var(--button-bg);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: none;
+}
+/* 设置归档按钮内 SVG 图标的左边距 */
+.archive-btn svg {
+  margin-left: 6px;
+}
+
+/* 活动框样式 */
+.app-activity-box {
+  border-radius: 10px;
+  padding: 16px 16px 8px 16px;
+  border: 1px solid var(--box-border);
+  background-color: var(--box-color);
+}
+
+/* 活动信息框样式 */
+.activity-info-boxes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* 单个活动信息框样式 */
+.activity-info-box {
+  width: 48%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 8px;
+  display: flex;
+}
+
+/* 活动信息框样式 */
+.activity-info-box.time {
+  background-color: var(--info-box-1);
+  color: var(--info-box-color-1);
+}
+
+/* 时间信息框图标包装器样式 */
+.activity-info-box.time .info-icon-wrapper {
+  background-color: var(--info-icon-bg-1);
+}
+
+/* 参与者信息框样式 */
+.activity-info-box.atendee {
+  background-color: var(--info-box-2);
+  color: var(--info-box-color-2);
+}
+
+/* 参与者信息框图标包装器样式 */
+.activity-info-box.atendee .info-icon-wrapper {
+  background-color: var(--info-icon-bg-2);
+}
+
+/* 会议信息框样式 */
+.activity-info-box.meeting {
+  background-color: var(--info-box-3);
+  color: var(--info-box-color-3);
+}
+
+/* 会议信息框图标包装器样式 */
+.activity-info-box.meeting .info-icon-wrapper {
+  background-color: var(--info-icon-bg-3);
+}
+
+/* 拒绝信息框样式 */
+.activity-info-box.reject {
+  background-color: var(--info-box-4);
+  color: var(--info-box-color-4);
+}
+
+/* 拒绝信息框图标包装器样式 */
+.activity-info-box.reject .info-icon-wrapper {
+  background-color: var(--info-icon-bg-4);
+}
+
+/* 信息图标包装器样式 */
+.info-icon-wrapper {
+  border-radius: 50%;
+  margin-right: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 信息图标SVG样式 */
+.info-icon-wrapper svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 信息文本包装器样式 */
+.info-text-wrapper span {
+  display: block;
+}
+
+/* 信息文本上部样式 */
+.info-text-upper {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 信息文本下部样式 */
+.info-text-bottom {
+  font-size: 10px;
+  color: var(--text-light);
+}
+
+/* 活动信息头部样式 */
+.activity-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  margin-top: 16px;
+}
+
+/* 信息头部粗体样式 */
+.info-header-bold {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* 信息头部淡色样式 */
+.info-header-light {
+  color: var(--text-light);
+  font-size: 12px;
+  line-height: 24px;
+}
+
+/* 活动天数包装器样式 */
+.activity-days-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+/* 单天样式 */
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 64px;
+}
+
+/* 当前天的图表样式 */
+.day.current .chart {
+  opacity: 1;
+  transform: scale(1.2);
+  transform-origin: bottom;
+}
+
+/* 第一天的图表样式 */
+.day:first-child .chart {
+  height: 20%;
+}
+
+/* 第三天的图表样式 */
+.day:nth-child(3) .chart {
+  height: 100%;
+}
+
+/* 单天图表样式 */
+.day .chart {
+  border-radius: 6px;
+  height: 50%;
+  width: 6px;
+  background-color: var(--button-bg);
+  opacity: 0.5;
+  position: relative;
+}
+
+/* 单天图表前伪元素样式 */
+.day .chart:before {
+  content: "";
+  position: absolute;
+  background-color: var(--button-bg);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  top: calc(100% + 4px);
+}
+
+/* 单天文字样式 */
+.day span {
+  margin-top: 20px;
+  display: block;
+  font-size: 10px;
+  color: var(--text-light);
+}
+
+/* 应用右下角样式 */
+.app-right-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 24px;
+  z-index: 1;
+  background-color: var(--app-bg);
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+/* 应用主题选择器样式 */
+.app-theme-selector {
+  background-color: var(--box-color);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--box-border);
+  display: flex;
+  justify-content: flex-end;
+  width: auto;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* 主题颜色样式 */
+.theme-color {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 激活的主题颜色样式 */
+.theme-color.active {
+  border: 1px solid #477eff;
+  box-shadow: 0 0 0 3px rgba(71, 126, 255, 0.2);
+}
+
+/* 主题颜色SVG样式 */
+.theme-color svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* 靛蓝主题颜色样式 */
+.theme-color.indigo {
+  background-color: #18689C;
+}
+
+/* 粉色主题颜色样式 */
+.theme-color.pink {
+  background-color: #e8d5db;
+}
+
+/* 黑色主题颜色样式 */
+.theme-color.dark {
+  background-color: #060415;
+}
+
+/* 深海军蓝主题颜色样式 */
+.theme-color.navy-dark {
+  background-color: #192734;
+  color: #fff;
+}
+
+/* 左右打开按钮样式 */
+.open-left, .open-right {
+  position: absolute;
+  padding: 0;
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-color: var(--box-color);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--box-border);
+  border-radius: 4px;
+  top: 24px;
+}
+
+/* 左侧打开按钮样式 */
+.open-left {
+  left: 0;
+}
+
+/* 右侧打开按钮样式 */
+.open-right {
+  right: 0;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 滚动条轨道样式 */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* 滚动条滑块样式 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--scrollbar-thumb);
+}
+
+/* 响应式样式 - 屏幕宽度小于1025px */
+@media screen and (max-width: 1025px) {
+  .app-left {
+    transform: translateX(-100%);
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+  }
+  /* 控制左侧面板在打开状态下的样式 */
+  .app-left.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* 设置左侧面板为可见状态 */
+  .open-left {
+    display: block;
+  }
+}
+
+/* 响应式样式 - 屏幕宽度小于680px */
+@media screen and (max-width: 680px) {
+  .app-right {
+    transform: translateX(100%);
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+  }
+  /* 控制右侧应用窗口的打开状态 */
+    .app-right.open {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  
+  /* 定义打开后的右侧显示状态 */
+    .open-right {
+      display: block;
+    }
+  
+  /* 应用主题选择器的样式 */
+    .app-theme-selector {
+      position: fixed;
+      bottom: 0;
+    }
+  
+  /* 主应用区域的高度设置 */
+    .app-main {
+      height: calc(100% - 48px);
+    }
+}
